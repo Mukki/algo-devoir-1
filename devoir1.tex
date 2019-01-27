@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+
+\usepackage{vmargin}
+\usepackage{setspace}
+\usepackage[ruled, linesnumbered, french, onelanguage]{algorithm2e}
+\usepackage{amsmath, amsthm, amssymb}
+
+\title{Devoir 1}
+\author{Jérémy Bouchard}
+\date{\today}
+
+\begin{document}
+
+  \begin{titlepage}
+    \doublespacing
+    \centering
+
+    UNIVERSITÉ DU QUÉBEC À CHICOUTIMI \\
+
+    \vspace{4.7cm}
+
+    DEVOIR 1 \\
+
+    \vspace{4.7cm}
+
+    PAR \\
+    JÉRÉMY BOUCHARD (BOUJ08019605) \\
+    ALEXANDRE LAROUCHE (LARA04119705) \\
+    JEAN-PHILIPPE SAVARD (SAVJ04079609) \\
+    ALEXIS VALOTAIRE (VALA) \\
+
+    \vspace{4.7cm}
+
+    DEVOIR PRÉSENTÉ À \\
+    M. FRANÇOIS LEMIEUX \\
+    DANS LE CADRE DU COURS D'ALGORITHMIQUE (8INF433)
+
+  \end{titlepage}
+
+  \newpage
+
+  \newpage
+
+  \pagenumbering{arabic}
+  \onehalfspacing
+
+  \section*{Question 1}
+
+  \newpage
+
+  \section*{Question 2}
+  \subsection*{a)}
+
+    Il est possible d'exprimer le pseudo-code de l'algorithme décrit dans
+    l'énoncé de la question 2. Il est également possible de constater qu'il
+    s'agit de l'algorithme du tri par selection. Celui-ci ce décrit de cette
+    façon : \newline
+
+    \begin{algorithm}[H]
+      \KwData{\( T[1 \cdot\cdot\cdot  n] \)}
+      \KwResult{\( T[1 \cdot\cdot\cdot  n] \) (Trié)}
+        \For{\( j \gets 1 $ \KwTo $ n - 1 \)}{
+          \( petit \gets j \)\\
+          \For{\( i \gets j + 1 \) \KwTo \( n \)}{
+            \If{\( T[i] < T[petit]\ \)}{
+              \( petit \gets i \)\
+            }
+          }
+          \( T[j] \leftrightarrow T[petit] \)
+        }
+      \caption{Pseudo-code du numéro 2}
+    \end{algorithm}
+
+  \subsection*{b)}
+
+    Il est possible de calculer le temps d'exécution de cette algorithme
+    facilement. En effet, pour chaque élément du tableau il est necessaire de
+    parcourir le reste du tableau moins les éléments déjà triés. Donc, pour la
+    première itération, il est nécessaire de réaliser \( (n - 1) \) comparaisons.
+    Pour la deuxième itération, cela sera \( (n - 2) \) itérations et ainsi de
+    suite jusqu'à ce qu'il ne reste que une seule valeur à trier. Il est donc
+    possible de formaliser le temps d'exécution de cette manière :
+
+    \[ (n - 1) + (n - 2) + (n - 3) + ... + 1 = \sum _ {i=1} ^ {n - 1} i \]
+
+    Il ne reste qu'à trouver l'ordre de \( \sum _ {i=1} ^ {n - 1} i \). \newpage
+
+    \begin{proof}[Temps d'exécution de l'algorithme de tri]
+      \begin{align*}
+        S   &= \sum _ {i=1} ^ {n - 1} i \\
+            &= (n - 1) + (n - 2) + (n - 3) + ... + 1 \\
+        2S  &= (n - 1) + (n - 2) + (n - 3) + ... + 1 \\
+            &\qquad\,\, + 1 \qquad\;\:\, + 2 \qquad\;\:\, + 3 \;+ ... + (n - 1) \\
+            &= \underbrace{(n + n + n + ... + n)}_\textrm{\( (n - 1) \) fois} \\
+            &= (n - 1)(n) \\
+        S   &= \frac{n(n - 1)}{2} \\
+            &= \frac{1}{2}n^2 - \frac{1}{2}n
+      \end{align*}
+      \( D'o\grave{u} \ \mathcal{O}(n^2) \)
+    \end{proof}
+
+  \newpage
+
+  \section*{Question 3}
+
+  \newpage
+
+  \section*{Question 4}
+
+  \newpage
+
+  \section*{Question 5}
+
+  \newpage
+
+\end{document}
