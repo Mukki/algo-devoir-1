@@ -106,7 +106,61 @@
   \newpage
 
   \section*{Question 4}
+	 \subsection*{Temps d'exécution}
+    Pour déterminer le temps d'exécution de l'algorithme tel qu'écrit dans l'énoncer, 
+    il faut avant tout l'analyser ligne par ligne.
+    
+    ~\begin{proof}[Ligne 1: ``d=0'']
+    	Une affection en informatique se fait en un temps constant (1).
+    \end{proof}
+     
+     ~\begin{proof}[Ligne 2: ``tantque (X \textgreater  Y) faire \{...\}'']
+	L'analyse de cette ligne est beaucoup plus difficile à faire, puisque nous
+	ne savons pas comment la condition sortie est modifiée. Nous le serons
+	au moment de l'analyse du contenu de la boucle. \newline
+	
+	Avec l'analyse du contenu de la boucle, on découvre qu'elle est exécutée
+	`n` fois, basée sur la différence de X et Y. Ainsi, on peut conclure qu'elle
+	est exécutée en un temps linéaire (n).
+    \end{proof}
+    
+     ~\begin{proof}[Ligne 3: ``Soustraction(X,Y)'']
+	Il est mentionné dans l'énoncé que cette fonction est exécuté en un temps
+	linéaire (n).
+    \end{proof}
+    
+    ~\begin{proof}[Ligne 4: ``d=d+1'']
+    	Une affection et une addition en informatique se font en un temps constant (1).
+    \end{proof}
 
+    ~\begin{proof}[Ligne 5: ``return d'']
+    	Un retour en informatique se fait en un temps constant (1).
+    \end{proof}
+    \ \\
+    \noindent Ainsi, nous savons que: \newline
+    1. Le temps d'exécution du contenu de la boucle est de $n + 1$; \newline
+    2. Le contenu de la boucle est exécuté `n` fois, donc $n(n + 1)$; \newline
+    3. Le reste de l'algorithme est en temps constant, donc $n(n + 1) + 1$. \newline
+    \ \\
+    En distribuant le tout, nous avons $n^{2}+n+1$. Donc le temps d'exécution est
+     de l'ordre de \( \mathcal{O}(n^2) \).
+    
+   \subsection*{Efficacité de l'algorithme}
+   	Est-ce que l'algorithme est efficace? La réponse est non. En effet, avec
+   	l'analyse du temps d'exécution fait précédement, nous avons déterminé
+   	que dans le pire des cas, le temps d'exécution est de l'ordre 
+   	de \( \mathcal{O}(n^2) \). \newline
+   	
+   	Bien qu'un algorithme de cet ordre est généralement acceptable, 
+   	il est mentionné dans l'énoncé que les variables X et Y sont de grands 
+   	entiers. On peut conclure que le pire des cas se produira relativement
+   	 souvent à l'exécution de l'algorithme, ce qui n'est pas vraiment acceptable. \newline
+   	 
+   	 Pour bien faire, il faudrait que la fonction `Soustraction(X,Y)` soit exectuable
+   	 dans un temps constant au lieu de linéaire, ce qui réduirait le temps d'éxectuion
+   	 dans l'ordre de \( \mathcal{O}(n) \) qui est beaucoup plus acceptable avec
+   	 de grandes valeurs. 
+   	
   \newpage
 
   \section*{Question 5}
