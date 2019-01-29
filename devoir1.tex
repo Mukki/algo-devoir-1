@@ -45,7 +45,16 @@
   \onehalfspacing
 
   \section*{Question 1}
-
+  (a)\[4^{log_2 n} \in \omega 4^{log_4 n\]
+  (b)\[(n + 1)^2 \in \Theta (n^2)\]
+  (c)\[2^{n+1} \in \Theta(2^n)\]
+  (d)\[n! \in o (n + 1)!\]
+  (e)\[2^n \in \Theta(4^{n/2})\]
+  (f)\[nlog_2 n \in o (n^2 - n)\]
+  (g)\[(log_2 n)^2 \in \omega (log_2 n^2)\]
+  (h)\[(1\2)^n \in o(1)\]
+  (i)\[2^100 \in \Theta(2)\]
+  (j)\[log_2 n^2 \in \Theta log_4 n\]
   \newpage
 
   \section*{Question 2}
@@ -102,7 +111,27 @@
   \newpage
 
   \section*{Question 3}
+  Supposons, par abus de notation, que $f \geq g$ (puisque forcément l'une doit
+  être plus grande ou égale que l'autre).
 
+  \subsection*{a)}
+  Prouvons que $max(f, g) \in  \mathcal{O}(f + g)$:\\
+  On a
+  \[max(f,g) = f\]
+  Or, \[f \leq f + g\]
+  On a donc
+  \[max(f,g) \in \mathcal{O}(f + g)\]
+
+  \subsection*{b)}
+  Prouvons que $f + g \in \mathcal{O}(max(f, g))$:\\
+  On a
+  \[f + g \in \mathcal{O}(f)\]
+  Or,
+  \[max(f, g) = f\]
+  Alors,
+  \[f + g \in \mathcal{O}(max(f, g))\]\\
+  Donc, \[\mathcal{O}(max(f, g)) = \mathcal{O}(f + g)\]
+  \hspace*{0pt}\hfill CQFD
   \newpage
 
   \section*{Question 4}
