@@ -76,14 +76,15 @@
     Il est possible de calculer le temps d'exécution de cette algorithme
     facilement. En effet, pour chaque élément du tableau il est necessaire de
     parcourir le reste du tableau moins les éléments déjà triés. Donc, pour la
-    première itération, il est nécessaire de réaliser \( (n - 1) \) comparaisons.
-    Pour la deuxième itération, cela sera \( (n - 2) \) itérations et ainsi de
-    suite jusqu'à ce qu'il ne reste que une seule valeur à trier. Il est donc
-    possible de formaliser le temps d'exécution de cette manière :
+    première itération, il est nécessaire de réaliser \( (n - 1) \)
+    comparaisons. Pour la deuxième itération, cela sera \( (n - 2) \) itérations
+    et ainsi de suite jusqu'à ce qu'il ne reste que une seule valeur à trier. Il
+    est donc possible de formaliser le temps d'exécution de cette manière :
 
     \[ (n - 1) + (n - 2) + (n - 3) + ... + 1 = \sum _ {i=1} ^ {n - 1} i \]
 
-    Il ne reste qu'à trouver l'ordre de \( \sum _ {i=1} ^ {n - 1} i \). \newpage
+    \noindent Il ne reste qu'à trouver l'ordre de
+    \( \sum _ {i=1} ^ {n - 1} i \). \newpage
 
     \begin{proof}[Temps d'exécution de l'algorithme de tri]
       \begin{align*}
@@ -106,6 +107,65 @@
   \newpage
 
   \section*{Question 4}
+	\subsection*{Temps d'exécution}
+    Pour déterminer le temps d'exécution de l'algorithme tel qu'écrit dans l'
+    énoncé, il faut avant tout analyser ligne par ligne le pseudo-code. Voici
+    donc l'analyse ligne par ligne. \newline
+
+    Ligne 1 : \( d = 0 \) \newline
+    Une affection en informatique se fait en un temps constant
+    \( \mathcal{O}(1) \). \newline
+
+    Ligne 2 : tant que \( (X > Y) \) faire \( \{ ... \} \) \newline
+    L'analyse de cette ligne est beaucoup plus difficile à faire, puisque nous
+	  ne savons pas comment la condition sortie est modifiée. Nous le saurons au
+    moment de l'analyse du contenu de la boucle. \newline
+
+  	Avec l'analyse du contenu de la boucle, on découvre qu'elle est exécutée
+  	\( n \) fois, basée sur la différence de \( X \) et \( Y \). Ainsi, on peut
+    conclure qu'elle est exécutée en un temps linéaire \( \mathcal{O}(n) \).
+    \newline
+
+    Ligne 3 : \( Soustraction(X, Y) \) \newline
+    Il est mentionné dans l'énoncé que cette fonction est exécuté en un temps
+	  linéaire \( \mathcal{O}(n) \). \newline
+
+    Ligne 4 : \( d = d + 1 \) \newline
+    Une affection et une addition en informatique se font en un temps constant
+    \( \mathcal{O}(1) \). \newline
+
+    Ligne 5 : return \( d \) \newline
+  	Un retour en informatique se fait en un temps constant
+    \( \mathcal{O}(1) \). \newline
+
+    \noindent Ainsi, il est possible de savoir que :
+    \begin{enumerate}
+      \item Le temps d'exécution du contenu de la boucle est de \( n + 1 \);
+      \item Le contenu de la boucle est exécuté `n` fois, donc \( n(n + 1) \);
+      \item Le reste de l'algorithme est en temps constant, donc
+       \( n(n + 1) + 1 \).
+    \end{enumerate}
+
+    \noindent En distribuant le tout, nous avons \( n ^ 2 + n + 1 \). Donc le
+    temps d'exécution est de l'ordre de \( \mathcal{O}(n^2) \).
+
+  \subsection*{Efficacité de l'algorithme}
+   	Est-ce que l'algorithme est efficace? La réponse est non. En effet, avec
+   	l'analyse du temps d'exécution fait précédement, nous avons déterminé
+   	que dans le pire des cas, le temps d'exécution est de l'ordre
+   	de \( \mathcal{O}(n^2) \). \newline
+
+   	\noindent Bien qu'un algorithme de cet ordre est généralement acceptable,
+   	il est mentionné dans l'énoncé que les variables X et Y sont de grands
+   	entiers. On peut conclure que le pire des cas se produira relativement
+   	souvent à l'exécution de l'algorithme, ce qui n'est pas vraiment
+    acceptable. \newline
+
+    \noindent Pour améliorer l'algorithme, il faudrait que la fonction
+    \( Soustraction(X, Y) \) soit exectuable dans un temps constant au lieu d'un
+    temps linéaire, ce qui réduirait le temps d'exécution dans l'ordre de
+    \( \mathcal{O}(n) \), ce qui serait beaucoup plus acceptable avec de grandes
+    valeurs d'entiers.
 
   \newpage
 
