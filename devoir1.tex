@@ -301,9 +301,9 @@
 	  \subsubsection*{Fonction fib1 :}      
       \noindent Cette fonction n'utilise pas beaucoup d'espace mémoire puisqu'elle ne fait qu'une comparaison et une addition, cependant le fait qu'elle soit récursive et qu'elle possède un temps d'exécution exponentiel font en sorte qu'elle a besoin de beaucoup plus d'espace mémoire que les 2 autres fonctions. Elle doit garder en mémoire la fonction à chaque fois qu'elle fait appelle à elle-même.
       \subsubsection*{Fonction fib2 :} 
-      \noindent À première vue, cette fonction utilise moins de ressource que \textit{fib3}. Cependant la boucle de \textit{fib2} va être exécutée beaucoup plus de fois que celle de \textit{fib3} en raison de leur ordre ce qui fait en sorte que \textit{fib2} utilise beaucoup plus de ressource que \textit{fib3}. 
+      \noindent Cette fonction utilise moins de ressource que \textit{fib3} puisqu'elle possède moins de déclaration de variable que \textit{fib3}.
       \subsubsection*{Fonction fib3 :}
-      \noindent Malgré le fait qu'à première vue, c'est cette fonction qui occupe le plus d'espace mémoire, le fait d'avoir un ordre de \( \mathcal{O}(log \: n) \) l'amène à avoir beaucoup d'excéution ce qui occupe moins de mémoire que les autres.
+      \noindent Cette fonction utilise moins d'espace mémoire que \textit{fib1} mais plus que \textit{fib2} car cette dernière utilise déclare moins de variable que \textit{fib3}.
     \subsection*{d)}
       \noindent Voici le temps processeur nécessaire pour les valeurs de n suivantes :     
       \begin{table}[h]
@@ -316,7 +316,7 @@
           \textbf{n=1000}    & N/A                 & 0.000014            & 0.000019            \\ \hline
           \textbf{n=10000}   & N/A                 & 0.000197            & 0.000019            \\ \hline
           \textbf{n=100000}  & N/A                 & 0.001976            & 0.000020            \\ \hline
-          \textbf{n=1000000} & N/A                 & 0.020925            & 0.000017            \\ \hline
+          \textbf{n=1000000} & N/A                 & 0.020925            & 0.000017*(Devrait être plus élevée)            \\ \hline
         \end{tabular}
       \end{table}
       \newline
