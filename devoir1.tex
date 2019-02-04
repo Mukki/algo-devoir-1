@@ -3,7 +3,8 @@
 \usepackage{vmargin}
 \usepackage{setspace}
 \usepackage[ruled, linesnumbered, french, onelanguage]{algorithm2e}
-\usepackage{amsmath, amsthm, amssymb}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[utf8]{inputenc}
 
 \title{Devoir 1}
 \author{Jérémy Bouchard}
@@ -27,7 +28,7 @@
     JÉRÉMY BOUCHARD (BOUJ08019605) \\
     ALEXANDRE LAROUCHE (LARA04119705) \\
     JEAN-PHILIPPE SAVARD (SAVJ04079609) \\
-    ALEXIS VALOTAIRE (VALA) \\
+    ALEXIS VALOTAIRE (VALA09129509) \\
 
     \vspace{4.7cm}
 
@@ -113,7 +114,7 @@
     donc l'analyse ligne par ligne. \newline
 
     Ligne 1 : \( d = 0 \) \newline
-    Une affection en informatique se fait en un temps constant
+    Une affectation en informatique se fait en un temps constant
     \( \mathcal{O}(1) \). \newline
 
     Ligne 2 : tant que \( (X > Y) \) faire \( \{ ... \} \) \newline
@@ -131,7 +132,7 @@
 	  linéaire \( \mathcal{O}(n) \). \newline
 
     Ligne 4 : \( d = d + 1 \) \newline
-    Une affection et une addition en informatique se font en un temps constant
+    Une affectation et une addition en informatique se font en un temps constant
     \( \mathcal{O}(1) \). \newline
 
     Ligne 5 : return \( d \) \newline
@@ -170,7 +171,113 @@
   \newpage
 
   \section*{Question 5}
+  	\subsection*{a)}
+  
+  	  \subsubsection*{Temps d'exécution de la fonction fib2 dans le pire des cas :}
+  	
+  	    \noindent \textbf{Ligne 1 :} \( int \: i = 1 \) \newline
+        Une affectation en informatique se fait en un temps constant
+        \( \mathcal{O}(1) \). \newline
 
+        \noindent \textbf{Ligne 2 :} \( int \: j = 0 \) \newline
+        Une affectation en informatique se fait en un temps constant
+        \( \mathcal{O}(1) \). \newline
+
+        \noindent \textbf{Ligne 3 :}  \( for\: (\:int \: k=1;k<=n;k++) \{ \cdots \} \: \) \newline
+        Une boucle \textit{for} de cette forme se fait en temps linéaire 
+        \( \mathcal{O}(n) \). \newline
+        
+        \noindent \textbf{Ligne 4 :} \( j=j+i \) \newline
+        Une affectation et une addition en informatique se font en un temps constant, \newline
+        cependant le fait qu'elle se trouve dans une boucle \textit{for} la rend linéaire
+        \( \mathcal{O}(n) \). \newline
+
+        \noindent \textbf{Ligne 5 :} \( i = j-i \) \newline
+  	    Une affectation et une addition en informatique se font en un temps constant, \newline
+        cependant le fait qu'elle se trouve dans une boucle \textit{for} la rend linéaire
+        \( \mathcal{O}(n) \). \newline
+    
+        \noindent \textbf{Ligne 6 :} \( return \: j \) \newline
+  	    Un retour en informatique se fait en un temps constant
+        \( \mathcal{O}(1) \). \newline
+
+        \noindent Ainsi, il est possible de savoir que : 
+	    \begin{align*}
+	       T(n) &= \mathcal{O}(1)+\mathcal{O}(1)+\mathcal{O}(n)+\mathcal{O}(n)+\mathcal{O}(n)+\mathcal{O}(1) \\
+	   	   &= \mathcal{O}(1+1+n+n+n+1) \\
+	       &= \mathcal{O}(n)
+	    \end{align*}	    
+      
+      \subsubsection*{Temps d'exécution de la fonction fib3 dans le pire des cas :}
+  	    
+  	    \noindent \textbf{Ligne 1 :} \( int \: i = 1 \) \newline
+        Une affectation en informatique se fait en un temps constant
+        \( \mathcal{O}(1) \). \newline
+
+        \noindent \textbf{Ligne 2 :} \( int \: j = 0 \) \newline
+        Une affectation en informatique se fait en un temps constant
+        \( \mathcal{O}(1) \). \newline
+        
+        \noindent \textbf{Ligne 3 :} \( int \: k = 0 \) \newline
+        Une affectation en informatique se fait en un temps constant
+        \( \mathcal{O}(1) \). \newline
+        
+        \noindent \textbf{Ligne 4 :} \( int \: h = 1 \) \newline
+        Une affectation en informatique se fait en un temps constant
+        \( \mathcal{O}(1) \). \newline
+        
+        \noindent \textbf{Ligne 5 :} \( while \: (n>0) \{ \cdots \} \) \newline
+        Dans le pire des cas, n vaudra \( 2^k - 1 \) où \(k \in \mathbb{N} \), donc de cette manière nous         savons qu'il est question d'un logarithmique. 
+        \( \mathcal{O}(log \: n) \). \newline
+
+        \noindent \textbf{Ligne 6 :}  \( if \: (n\%2)\{ \cdots \} \) \newline
+        Une condition se fait en un temps constant, par contre le fait qu'elle se situe dans un \textit{while} fait en sorte que le temps constant va être multiplié par le temps \( \mathcal{O}(log \: n) \) de la boucle. En effet, en étant en pire cas, cette condition se doit d'être vrai en tout temps.
+        \( \mathcal{O}(1)*\mathcal{O}(log \: n) \). \newline
+
+        \noindent \textbf{Ligne 7 :} \( int \: t = j*h \) \newline
+        Une affectation et une addition en informatique se font en un temps constant, cependant le fait qu'elle se trouve dans une boucle \textit{while} fait en sorte qu'elle se multiplie avec le temps d'exécution de cette dernière.
+        \( \mathcal{O}(1)*\mathcal{O}(log \: n) \). \newline
+
+        \noindent \textbf{Ligne 8 :} \( j = i*h + j*k + t \) \newline
+  	    Une affectation et une addition en informatique se font en un temps constant, cependant le fait qu'elle se trouve dans une boucle \textit{while} fait en sorte qu'elle se multiplie avec le temps d'exécution de cette dernière.
+        \( \mathcal{O}(1)*\mathcal{O}(log \: n) \). \newline
+    
+        \noindent \textbf{Ligne 9 :} \( i = i*k + t; \) \newline
+  	    Une affectation et une addition en informatique se font en un temps constant, cependant le fait qu'elle se trouve dans une boucle \textit{while} fait en sorte qu'elle se multiplie avec le temps d'exécution de cette dernière.
+        \( \mathcal{O}(1)*\mathcal{O}(log \: n) \). \newline
+        
+        \noindent \textbf{Ligne 10 :} \( int \: t = h*h \) \newline
+  	    Une affectation et une addition en informatique se font en un temps constant, cependant le fait qu'elle se trouve dans une boucle \textit{while} fait en sorte qu'elle se multiplie avec le temps d'exécution de cette dernière.
+        \( \mathcal{O}(1)*\mathcal{O}(log \: n) \). \newline
+        
+        \noindent \textbf{Ligne 11 :} \( h = 2*k*h + t \) \newline
+  	    Une affectation et une addition en informatique se font en un temps constant, cependant le fait qu'elle se trouve dans une boucle \textit{while} fait en sorte qu'elle se multiplie avec le temps d'exécution de cette dernière.
+        \( \mathcal{O}(1)*\mathcal{O}(log \: n) \). \newline
+        
+        \noindent \textbf{Ligne 12 :} \( k = k*k + t \) \newline
+  	    Une affectation et une addition en informatique se font en un temps constant, cependant le fait qu'elle se trouve dans une boucle \textit{while} fait en sorte qu'elle se multiplie avec le temps d'exécution de cette dernière.
+        \( \mathcal{O}(1)*\mathcal{O}(log \: n) \). \newline
+       
+        \noindent \textbf{Ligne 13 :} \( n = n/2 \) \newline
+  	    Une affectation et une addition en informatique se font en un temps constant, cependant le fait qu'elle se trouve dans une boucle \textit{while} fait en sorte qu'elle se multiplie avec le temps d'exécution de cette dernière.
+        \( \mathcal{O}(1)*\mathcal{O}(log \: n) \). \newline
+        
+        \noindent \textbf{Ligne 14 :} \( return \: j \) \newline
+  	    Un retour en informatique se fait en un temps constant
+        \( \mathcal{O}(1) \). \newline
+
+        \noindent Ainsi, il est possible de savoir que : 
+	    \begin{align*}
+	       T(n) &= 4*(\mathcal{O}(1))+\mathcal{O}(log \: n)+8*( \mathcal{O}(1)*\mathcal{O}(log \: n)) + \mathcal{O}(1) \\
+	   	   &= \mathcal{O}(13*(1)+9*(log \: n)) \\
+	       &= \mathcal{O}(log \: n)
+	    \end{align*}
+      
+  	
+    \subsection*{b)}
+      \noindent Nous observons que \textit{fib1} est la fonction dont la temps d'exécution est le plus long et que la fonction \textit{fib3} possède le temps d'exécution le plus court. Cette différence s'explique par le fait que \( \phi^n \geq n \geq log \: n  \; \; \forall n \in \mathbb{R} \)
+    \subsection*{c)}
+    \subsection*{d)}
   \newpage
 
 \end{document}
