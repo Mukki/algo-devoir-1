@@ -141,13 +141,37 @@
     \noindent Il est possible d'utiliser la définition formelle pour écrire :
     \begin{align*}
       | S(n) |  &\leq c * (f(n) + g(n)), n > n_1 \\
-                &\leq c * 2 * max\{f(n), g(n)\}, n > n_1 \\
+                &\leq c * 2 * max\{f(n), g(n)\}, n > n_1 &\text{grâce aux relations} \\
                 &\leq k * max\{f(n), g(n)\}, n > n_1 \\
-                & n_1 = 1, k = 2 * c
+                & n_1 = n, k = 2 * c \text{, (n choisi assez grand)} \\
     \end{align*}
 
     \noindent D'où :
-    \( S(n) \in \mathcal{O}({max\{f(n), g(n)\}})\)
+    \( S(n) \in \mathcal{O}({max\{f(n), g(n)\}}) \)
+  \end{proof}
+
+  \newpage
+
+  \noindent \newline Pour compléter la preuve, la preuve doit aussi être faite
+  dans la direction contraire. \newline
+
+  \begin{proof}[Preuve]
+    \noindent \\ Notons une fonction :
+    \[ S(n) \in \mathcal{O}({max\{f(n), g(n)\}}) \]
+
+    \noindent Notons toujours, encore une fois, les deux relations suivantes :
+    \[ f(n) + g(n) = min\{f(n), g(n)\} + max\{f(n), g(n)\} \]
+    \[ max\{f(n), g(n)\} \leq f(n) + g(n) \leq 2 * max\{f(n), g(n)\} \] \\
+
+    \noindent Il est possible d'utiliser la définition formelle pour écrire :
+    \begin{align*}
+      | S(n) |  &\leq c * max\{f(n), g(n)\}, n > n_1 \\
+                &\leq c * f(n) + g(n), n > n_1 &\text{grâce aux relations} \\
+                & n_1 = n, k = 2 * c \text{, (n choisi assez grand)} \\
+    \end{align*}
+
+    \noindent D'où :
+    \( S(n) \in \mathcal{O}(f(n) + g(n)) \)
   \end{proof}
 
   \newpage
