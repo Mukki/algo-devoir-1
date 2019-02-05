@@ -4,6 +4,7 @@
 \usepackage{setspace}
 \usepackage[ruled, linesnumbered, french, onelanguage]{algorithm2e}
 \usepackage{amsmath, amsthm, amssymb}
+\usepackage{enumitem}
 
 \title{Devoir 1}
 \author{Jérémy Bouchard}
@@ -46,10 +47,23 @@
 
   \section*{Question 1}
 
+    \begin{enumerate}[label=(\alph*)]
+      \item \[ 4 ^ {log_2 n} \in \omega 4 ^ {log_4 n} \]
+      \item \[ (n + 1) ^ {2} \in \Theta (n ^ 2) \]
+      \item \[ 2 ^ {n + 1} \in \Theta (2 ^ n) \]
+      \item \[ n! \in o (n + 1)! \]
+      \item \[ 2 ^ n \in \Theta (4 ^ {n / 2}) \]
+      \item \[ n*log_2(n) \in o (n ^ 2 - n) \]
+      \item \[ (log_2(n)) ^ 2 \in \omega (log_2(n^2)) \]
+      \item \[ {1 \over 2} ^ {n} \in o (1) \]
+      \item \[ 2^{100} \in \Theta(2) \]
+      \item \[ log_2(n^2) \in \Theta log_4(n) \]
+    \end{enumerate}
+
   \newpage
 
   \section*{Question 2}
-  \subsection*{a)}
+  \subsection*{(a)}
 
     Il est possible d'exprimer le pseudo-code de l'algorithme décrit dans
     l'énoncé de la question 2. Il est également possible de constater qu'il
@@ -71,7 +85,7 @@
       \caption{Pseudo-code du numéro 2}
     \end{algorithm}
 
-  \subsection*{b)}
+  \subsection*{(b)}
 
     Il est possible de calculer le temps d'exécution de cette algorithme
     facilement. En effet, pour chaque élément du tableau il est necessaire de
@@ -103,6 +117,32 @@
   \newpage
 
   \section*{Question 3}
+  Pour prouver cette égalité, il est nécessaire d'utiliser la definition
+  formelle de la notation grand \( \mathcal{O} \). \newline
+
+  \noindent Pour prouver que
+  \( \mathcal{O}({max\{f(n), g(n)\}}) = \mathcal{O}(f(n) + g(n)) \), on doit
+  donc prouver que n'importe quelle fonction apartenant à un ensemble appartient
+  aussi à l'autre ensemble. \\
+
+  \begin{proof}[Preuve]
+    \noindent \\ Notons une fonction : \[ S(n) \in \mathcal{O}(f(n) + g(n)) \] \\
+
+    \noindent Notons aussi les deux relations suivantes :
+    \[ f(n) + g(n) = min\{f(n), g(n)\} + max\{f(n), g(n)\} \]
+    \[ max\{f(n), g(n)\} \leq f(n) + g(n) \leq 2 * max\{f(n), g(n)\} \] \\
+
+    \noindent Il est possible d'utiliser la définition formelle pour écrire :
+    \begin{align*}
+      | S(n) |  &\leq c * (f(n) + g(n)), n > n_1 \\
+                &\leq c * 2 * max\{f(n), g(n)\}, n > n_1 \\
+                &\leq k * max\{f(n), g(n)\}, n > n_1 \\
+                & n_1 = 1, k = 2 * c
+    \end{align*}
+
+    \noindent D'où :
+    \( S(n) \in \mathcal{O}({max\{f(n), g(n)\}})\)
+  \end{proof}
 
   \newpage
 
@@ -165,7 +205,8 @@
     \( Soustraction(X, Y) \) soit exectuable dans un temps constant au lieu d'un
     temps linéaire, ce qui réduirait le temps d'exécution dans l'ordre de
     \( \mathcal{O}(n) \), ce qui serait beaucoup plus acceptable avec de grandes
-    valeurs d'entiers.
+    valeurs d'entiers. Il serait possible de le faire en remplacant la ligne
+    avec \( X - Y \).
 
   \newpage
 
